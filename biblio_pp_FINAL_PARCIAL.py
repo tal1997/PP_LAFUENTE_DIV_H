@@ -434,14 +434,58 @@ def mayor_que_ingresado_posicion(dicci, dato_ingresado, estadist_ingresada): #FU
                                                                                 #LOGRO ORDENARLA POR POSICION, PORQUE CARGO LA POSICION COMO SEGUNDO ELEMENTO, Y MI FUNCION QUICKSORT UNIVERSAL, ORDENA POR EL SEGUNDO ELEMENTO DE LOS DATOS INGRESADOS
     return ("Los jugadores que el {0} es mayor al ingresado son: {1}".format(estadist_ingresada,lista_mayores)) #RETORNO LOS DATOS OBTENIDOS
 
-#FUNCION BONUS
+    
+    #FUNCION BONUS
 def bonus(dicci):
-    def calcula_indice(dicci):
-        for indice, jugador in enumerate(dicci):
-            print("El índice del jugador", jugador["nombre"], "es:", indice)
+    lista_jugadores_puntos = []
+    lista_jugadores_rebotes = []
+    lista_jugadores_asistencias = []
+    lista_jugadores_robos = []
+    
+    for jugador in dicci:
+            mayor_que_ingresado(dicci, 0, "puntos_totales")
+            tupla = (jugador["nombre"] , jugador["estadisticas"]["puntos_totales"])
+            lista_jugadores_puntos.append(tupla)
+            
+            mayor_que_ingresado(dicci, 0, "rebotes_totales")
+            tupla = (jugador["nombre"] , jugador["estadisticas"]["rebotes_totales"])
+            lista_jugadores_rebotes.append(tupla)
+            
+            mayor_que_ingresado(dicci, 0, "asistencias_totales")
+            tupla = (jugador["nombre"] , jugador["estadisticas"]["asistencias_totales"])
+            lista_jugadores_asistencias.append(tupla)
+            
+            mayor_que_ingresado(dicci, 0, "robos_totales")
+            tupla = (jugador["nombre"] , jugador["estadisticas"]["robos_totales"])
+            lista_jugadores_robos.append(tupla)       
+    
+    lista_jugadores_puntos_final = []
+    lista_jugadores_rebotes_final = []
+    lista_jugadores_asistencias_final = []
+    lista_jugadores_robos_final = []
+    
+    
+    for indice, jugador in enumerate(lista_jugadores_puntos):                   #AVERIGUAR INDICE JUGADOR
+        resultado_puntos = ("La posicion del jugador: {0} es: {1} , con {2} puntos totales".format(jugador[0] , indice+1, jugador[1]))
+        lista_jugadores_puntos_final.append(resultado_puntos)
+        
+                        
+    for indice, jugador in enumerate(lista_jugadores_rebotes):                   
+        resultado_rebotes = ("La posicion del jugador: {0} es: {1} , con {2} rebotes totales".format(jugador[0] , indice+1, jugador[1]))
+        lista_jugadores_rebotes_final.append(resultado_rebotes)
+        
+    for indice, jugador in enumerate(lista_jugadores_asistencias):                   
+        resultado_asistencias = ("La posicion del jugador: {0} es: {1} , con {2} asistencias totales".format(jugador[0] , indice+1, jugador[1]))
+        lista_jugadores_asistencias_final.append(resultado_asistencias)
+        
+    for indice, jugador in enumerate(lista_jugadores_robos):                   
+        resultado_robos = ("La posicion del jugador: {0} es: {1} , con {2} robos totales".format(jugador[0] , indice+1, jugador[1]))
+        lista_jugadores_robos_final.append(resultado_robos)
 
-
-
+    #contenido = lista_jugadores_puntos_final,lista_jugadores_rebotes_final,lista_jugadores_asistencias_final,lista_jugadores_robos_final
+    
+    guardar_csv = exporta_csv("Bonus!!", (lista_jugadores_puntos_final, lista_jugadores_rebotes_final, lista_jugadores_asistencias_final, lista_jugadores_robos_final))
+    #return guardar_csv
 #####################################################
 
 
@@ -541,13 +585,3 @@ def maximo_jugador_estadisticas(dicci):
         
     return (max_jugador_estadisticas)
         
-    
-        
-    
-            
-        
-    
-    
-    
-    
-   
