@@ -204,6 +204,10 @@ def funciones_menu(dicci: dict):
                     verif_valor = validar_numero_dos_digito(valor_ppp)
                 mayores = mayor_que_ingresado_posicion(dicci, float(valor_ppp) , "porcentaje_tiros_de_campo")    #LLAMO A LA FUNCION MAYOR_QUE_INGRESADO PARA AVERIGUAR LOS MAYORES AL DATO INGRESADO, LE PASO DICCIONARIO, EL VALOR INGRESADO Y ESTADISTICA porcentaje_tiros_de_campo 
                 print(mayores)                                                  #IMPRIMO EL RETORNO DE LA FUNCION
+            case "23":
+                bono = bonus(dicci)
+                print(bono)
+            
             case "24":
                 jugadores_posic = jugadores_por_posicion(dicci)
                 print(jugadores_posic)
@@ -431,9 +435,10 @@ def mayor_que_ingresado_posicion(dicci, dato_ingresado, estadist_ingresada): #FU
     return ("Los jugadores que el {0} es mayor al ingresado son: {1}".format(estadist_ingresada,lista_mayores)) #RETORNO LOS DATOS OBTENIDOS
 
 #FUNCION BONUS
-def bonus():
-    psiquis_en_corto = ("VALE POR UN BONITO CODIGO DE BONUS... SI TAN SOLO TUVIERA UNO!!!1!1!! :')")
-    return psiquis_en_corto                                         #ME HUBIESE GUSTADO LLEGAR A HACER EL BONUS PERO TENGO EL CEREBRO QUEMADO YA, MIL DISCULPAS (U.u)}
+def bonus(dicci):
+    def calcula_indice(dicci):
+        for indice, jugador in enumerate(dicci):
+            print("El índice del jugador", jugador["nombre"], "es:", indice)
 
 
 
